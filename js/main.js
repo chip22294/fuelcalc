@@ -1,5 +1,8 @@
 document.getElementById("main-form").addEventListener("submit", checkForm);
 var mainForm = document.getElementById("main-form");
+var errorMsg = document.getElementById("errormsg");
+const viberURL = "viber://forward?text=";
+const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
 
 //inForm.addEventListener("submt", checkForm);
 
@@ -9,11 +12,7 @@ function calc(fuelCons, fuelCost, distance) {
 
 function chkErrors() {
     var retResult = true;
-    /*
-    console.log("fuelcons: " + mainForm.fuelcons.value);
-    console.log("fuelcost: " + mainForm.fuelcost.value);
-    console.log("distance: " + mainForm.distance.value);
-    */
+
     if (mainForm.fuelcons.value === "" || mainForm.fuelcost.value === "" || mainForm.distance.value === "") {
         retResult = false;
     }
@@ -23,21 +22,53 @@ function chkErrors() {
     return retResult;
 }
 
-function checkForm(event) {
-    event.preventDefault();
-    
+function processForm () {
     var oFuelcons = mainForm.fuelcons.value;
     var oFuelcost = mainForm.fuelcost.value;
     var oDistance = mainForm.distance.value;
     
     if (chkErrors()) {
         mainForm.price.value= calc (oFuelcons, oFuelcost, oDistance);
+        errorMsg.textContent = "";
     } else 
     {
-        mainForm.price.value="Error !";
+        mainForm.price.value= 0;
+        errorMsg.textContent = "Error !";
     }
-
-
-    
 }
 
+function checkForm(event) {
+    event.preventDefault();
+    processForm();
+}
+
+function makeReport() {
+    var rep = "";
+    rep += "Fuel consumption: " + mainForm.fuelcons.value + " l/100 km ";
+    rep += "Fuel cost: " + mainForm.fuelcost.value + " UAH ";
+    rep += "Distance: " + mainForm.distance.value + " km ";
+    rep += "Price: " + mainForm.price.value + " UAH";
+    return rep;
+}
+
+function shareText (inText, inUrl) {
+    console.log(inText);
+    window.open (inUrl + inText);
+}
+
+function sendToClick(inClick) {
+    processForm();
+    makeReport();
+    switch (inClick) {
+        case "viber":
+            shareText (makeReport(), viberURL);
+            break;
+        case "telegram":
+            shareText (makeReport(), telegramURL);
+            break;
+
+        default:
+            break;
+    }
+    
+}

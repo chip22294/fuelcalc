@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+
 body {
-    /* background: gray; */
-    width: 300px;
-    
+    width: 270px;
 }
 
 .head {
@@ -17,18 +17,23 @@ body {
     border-radius: 5px;
 }
 
-/*
-.inputfiled {
-    align-items: center;
-    width: 50%;
-    color: brown;
-    border: 5px;
+#errormsg {
+    color: red;
 }
-*/
+
 .tdlabel {
     text-align: right;
 }
 
 .tdinput {
     width: 40px;
+}
+
+.copyright {
+	color: rgb(81, 42, 165);
+	text-align: right;
+	font-size: 0.7em;
+	font-style: normal;
+	font-family: 'Alkatra', cursive;
+	text-transform: capitalize;
 }
