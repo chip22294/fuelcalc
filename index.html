@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuel calculator</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  	<div class="head">
+    	<h4 class="logo">FUEL CALCULATOR</h4>
+	</div>
+	<form id="main-form" method="post">
+		<!--
+		<div class="inputfiled">
+			<label for="fuelcons">Fuel consumption:</label>
+			<input type="number" name="fuelcons" id="fuelcons" value="10">
+			<span>l/100 km</span>
+		</div>
+		<div class="inputfiled">
+			<label for="fuelcost">Fuel cost:</label>
+			<input type="text" name="fuelcost" id="fuelcost" value="49">
+			<span>UAH</span>
+		</div>
+		<div class="inputfiled">
+			<label for="distance">Distance:</label>
+			<input type="text" name="distance" id="distance" value="23">
+			<span>km</span>
+		</div>
+		<div class="inputfiled">
+			<label for="price">Price:</label>
+			<input type="text" name="price" id="price" readonly>
+			<span>UAH</span>
+		</div>
+		-->
+		<table>
+			<tr>
+				<td class="tdlabel">Fuel consumption:</td>
+				<td><input class="tdinput" type="number" name="fuelcons" id="fuelcons" value="10"></td>
+				<td>l/100 km</td>
+			</tr>
+			<tr>
+				<td class="tdlabel">Fuel cost:</td>
+				<td><input class="tdinput" type="number" name="fuelcost" id="fuelcost" value="49"></td>
+				<td>UAH</td>
+			</tr>
+			<tr>
+				<td class="tdlabel">Distance:</td>
+				<td><input class="tdinput"  type="number" name="distance" id="distance" value="23"></td>
+				<td>km</td>
+			</tr>
+			<tr>
+				<td class="tdlabel">Price:</td>
+				<td><input class="tdinput" type="number" name="price" id="price" readonly></td>
+				<td>UAH</td>
+			</tr>
+		</table>
+		<input type="submit" value="Calculate">
+	</form>
+  <div class="copyright">&copy;2023- <strong>Evgeny Nechyporuk</strong></div>
+<script language="JavaScript" src="js/main.js"></script>
+</body>
+</html>
