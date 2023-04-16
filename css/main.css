@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
 
 body {
-    width: 270px;
+    width: auto;
+    font-size: 1.2em;
+    border-radius: 5px;
+    /* text-align: center; */
 }
 
 .head {
@@ -21,12 +24,18 @@ body {
     color: red;
 }
 
+.imgbut {
+    width: 32px;
+    height: auto;
+}
+
 .tdlabel {
     text-align: right;
 }
 
 .tdinput {
-    width: 40px;
+    width: 60px;
+    font-size: 1.2em;
 }
 
 .copyright {
