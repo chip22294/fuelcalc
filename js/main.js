@@ -4,7 +4,7 @@ var errorMsg = document.getElementById("errormsg");
 const viberURL = "viber://forward?text=";
 const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
 
-//inForm.addEventListener("submt", checkForm);
+//inForm.addEventListener("submit", checkForm);
 
 function calc(fuelCons, fuelCost, distance) {
     return Math.round (((fuelCons / 100) * distance) * fuelCost);
@@ -32,14 +32,29 @@ function processForm () {
         errorMsg.textContent = "";
     } else 
     {
-        mainForm.price.value= 0;
+        mainForm.price.value = 0;
         errorMsg.textContent = "Error !";
     }
 }
 
 function checkForm(event) {
     event.preventDefault();
-    processForm();
+
+    switch (event.submitter.id) {
+        case "calculate":
+            processForm();
+            break;
+
+        case "resetf":
+            mainForm.price.value = 0;
+            mainForm.distance.value = 0;
+            break;
+    
+        default:
+            break;
+    }
+    
+    
 }
 
 function makeReport() {
