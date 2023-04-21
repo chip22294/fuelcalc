@@ -4,7 +4,9 @@ var errorMsg = document.getElementById("errormsg");
 const viberURL = "viber://forward?text=";
 const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
 
-//inForm.addEventListener("submit", checkForm);
+mainForm.fuelcons.value = getCookie("fuelcons");
+mainForm.fuelcost.value =  getCookie("fuelcost");
+mainForm.distance.value =  getCookie("distance");
 
 function calc(fuelCons, fuelCost, distance) {
     return Math.round (((fuelCons / 100) * distance) * fuelCost);
@@ -22,6 +24,12 @@ function chkErrors() {
     return retResult;
 }
 
+function saveFormCookies() {
+    setCookie("fuelcons", mainForm.fuelcons.value, 365);
+    setCookie("fuelcost", mainForm.fuelcost.value, 365);
+    setCookie("distance", mainForm.distance.value, 365);
+}
+
 function processForm () {
     var oFuelcons = mainForm.fuelcons.value;
     var oFuelcost = mainForm.fuelcost.value;
@@ -30,6 +38,7 @@ function processForm () {
     if (chkErrors()) {
         mainForm.price.value= calc (oFuelcons, oFuelcost, oDistance);
         errorMsg.textContent = "";
+        saveFormCookies();
     } else 
     {
         mainForm.price.value = 0;
