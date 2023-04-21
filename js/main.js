@@ -4,9 +4,24 @@ var errorMsg = document.getElementById("errormsg");
 const viberURL = "viber://forward?text=";
 const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
 
-mainForm.fuelcons.value = getCookie("fuelcons");
-mainForm.fuelcost.value =  getCookie("fuelcost");
-mainForm.distance.value =  getCookie("distance");
+if (getCookie("fuelcons") !== null) {
+    mainForm.fuelcons.value = getCookie("fuelcons");
+} else {
+    mainForm.fuelcons.value = 10;
+}
+
+if (getCookie("fuelcost") !== null) {
+    mainForm.fuelcost.value =  getCookie("fuelcost");
+} else {
+    mainForm.fuelcost.value = 49;
+}
+
+if (getCookie("distance") !== null) {
+    mainForm.distance.value =  getCookie("distance");    
+} else {
+    mainForm.distance.value = 20;
+}
+
 
 function calc(fuelCons, fuelCost, distance) {
     return Math.round (((fuelCons / 100) * distance) * fuelCost);
