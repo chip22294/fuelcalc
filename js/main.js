@@ -1,6 +1,22 @@
 document.getElementById("main-form").addEventListener("submit", checkForm);
 var mainForm = document.getElementById("main-form");
 var errorMsg = document.getElementById("errormsg");
+
+var viberbtn = document.getElementById("viberbtn");
+var telebtn = document.getElementById("telebtn");
+
+function shareVisible(isVisible) {
+    if (isVisible) {
+        viberbtn.style.visibility = "visible";
+        telebtn.style.visibility = "visible";
+    } else {
+        viberbtn.style.visibility = "hidden";
+        telebtn.style.visibility = "hidden";
+    }
+}
+
+shareVisible (false);
+
 const viberURL = "viber://forward?text=";
 const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
 
@@ -19,7 +35,7 @@ if (getCookie("fuelcost") !== null) {
 if (getCookie("distance") !== null) {
     mainForm.distance.value =  getCookie("distance");    
 } else {
-    mainForm.distance.value = 20;
+    mainForm.distance.value = 2;
 }
 
 
@@ -54,10 +70,12 @@ function processForm () {
         mainForm.price.value= calc (oFuelcons, oFuelcost, oDistance);
         errorMsg.textContent = "";
         saveFormCookies();
+        shareVisible (true);
     } else 
     {
         mainForm.price.value = 0;
         errorMsg.textContent = "Error !";
+        shareVisible (false);
     }
 }
 
@@ -71,9 +89,10 @@ function checkForm(event) {
 
         case "resetf":
             mainForm.price.value = 0;
-            mainForm.distance.value = 0;
-            break;
-    
+            mainForm.distance.value = 2;
+            errorMsg.textContent = "";
+            shareVisible (false);
+            break;    
         default:
             break;
     }
@@ -105,7 +124,6 @@ function sendToClick(inClick) {
         case "telegram":
             shareText (makeReport(), telegramURL);
             break;
-
         default:
             break;
     }

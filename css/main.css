@@ -27,6 +27,7 @@ body {
 .imgbut {
     width: 32px;
     height: auto;
+    /* visibility: hidden; */
 }
 
 .tdlabel {
