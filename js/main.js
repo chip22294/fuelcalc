@@ -5,18 +5,6 @@ var errorMsg = document.getElementById("errormsg");
 var viberbtn = document.getElementById("viberbtn");
 var telebtn = document.getElementById("telebtn");
 
-function shareVisible(isVisible) {
-    if (isVisible) {
-        viberbtn.style.visibility = "visible";
-        telebtn.style.visibility = "visible";
-    } else {
-        viberbtn.style.visibility = "hidden";
-        telebtn.style.visibility = "hidden";
-    }
-}
-
-shareVisible (false);
-
 const viberURL = "viber://forward?text=";
 const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
 
@@ -38,6 +26,23 @@ if (getCookie("distance") !== null) {
     mainForm.distance.value = 2;
 }
 
+function shareVisible(isVisible) {
+    if (isVisible) {
+        viberbtn.style.visibility = "visible";
+        telebtn.style.visibility = "visible";
+    } else {
+        viberbtn.style.visibility = "hidden";
+        telebtn.style.visibility = "hidden";
+    }
+}
+
+if (mainForm.price.value > 0) { shareVisible (true); }
+    else { shareVisible (false); }
+
+function resetCalc() {
+    mainForm.price.value = 0;
+    shareVisible (false);
+}
 
 function calc(fuelCons, fuelCost, distance) {
     return Math.round (((fuelCons / 100) * distance) * fuelCost);
@@ -110,7 +115,6 @@ function makeReport() {
 }
 
 function shareText (inText, inUrl) {
-    console.log(inText);
     window.open (inUrl + inText);
 }
 

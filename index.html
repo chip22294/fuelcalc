@@ -17,17 +17,17 @@
 		<table>
 			<tr>
 				<td class="tdlabel">Fuel consumption:</td>
-				<td><input class="tdinput" type="number" name="fuelcons" id="fuelcons" value="10"></td>
+				<td><input class="tdinput" type="number" name="fuelcons" id="fuelcons" value="10" onchange="resetCalc()"></td>
 				<td>l/100 km</td>
 			</tr>
 			<tr>
 				<td class="tdlabel">Fuel cost:</td>
-				<td><input class="tdinput" type="number" name="fuelcost" id="fuelcost" value="49"></td>
+				<td><input class="tdinput" type="number" name="fuelcost" id="fuelcost" value="49" onchange="resetCalc()"></td>
 				<td>UAH</td>
 			</tr>
 			<tr>
 				<td class="tdlabel">Distance:</td>
-				<td><input class="tdinput"  type="number" name="distance" id="distance" value="23"></td>
+				<td><input class="tdinput"  type="number" name="distance" id="distance" value="23" onchange="resetCalc()"></td>
 				<td>km</td>
 			</tr>
 			<tr>
@@ -40,7 +40,7 @@
 			<input class="imgbut" type="image" src="images/reset.png" alt="Reset" id="resetf">
 			<a href="#" onclick="sendToClick('viber')"><img id="viberbtn" class="imgbut" src="images/viber.png" alt="To Viber"></a>
 			<a href="#" onclick="sendToClick('telegram')"><img id="telebtn" class="imgbut" src="images/telegram.png" alt="To Telegram"></a>
-		<span id="errormsg"></span>
+		<samp id="errormsg"></samp>
 	</form>
 		
   <div class="copyright">&copy;2023- <strong>Evgeny Nechyporuk</strong></div>
