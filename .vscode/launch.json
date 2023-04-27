@@ -4,6 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    {
+        "name": "Launch Chrome",
+        "request": "launch",
+        "type": "chrome",
+        "url": "http://localhost/fuelcalc/index.html",
+        "webRoot": "${workspaceFolder}"
+    },
         {
             "type": "firefox",
             "request": "launch",
