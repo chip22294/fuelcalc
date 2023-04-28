@@ -7,23 +7,26 @@ var telebtn = document.getElementById("telebtn");
 
 const viberURL = "viber://forward?text=";
 const telegramURL = "https://telegram.me/share/url?url=http://fire.me&text=";
+const defaultFuelCost = 49;
+const defaultFuelCons = 10;
+const defaultDistance = 2;
 
 if (getCookie("fuelcons") !== null) {
     mainForm.fuelcons.value = getCookie("fuelcons");
 } else {
-    mainForm.fuelcons.value = 10;
+    mainForm.fuelcons.value = defaultFuelCons;
 }
 
 if (getCookie("fuelcost") !== null) {
     mainForm.fuelcost.value =  getCookie("fuelcost");
 } else {
-    mainForm.fuelcost.value = 49;
+    mainForm.fuelcost.value = defaultFuelCost;
 }
 
 if (getCookie("distance") !== null) {
     mainForm.distance.value =  getCookie("distance");    
 } else {
-    mainForm.distance.value = 2;
+    mainForm.distance.value = defaultDistance;
 }
 
 function shareVisible(isVisible) {
@@ -94,7 +97,7 @@ function checkForm(event) {
 
         case "resetf":
             mainForm.price.value = 0;
-            mainForm.distance.value = 2;
+            mainForm.distance.value = defaultDistance;
             errorMsg.textContent = "";
             shareVisible (false);
             break;    
