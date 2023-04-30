@@ -8,7 +8,7 @@ body {
 }
 
 .head {
-    background: blue;
+    background: rgb(103, 103, 209);
     color: aqua;
     text-align: center;
     border-radius: 5px;
@@ -24,8 +24,15 @@ body {
     color: red;
 }
 
+#butplace {
+    text-align: center;
+    border-top: 1px outset rgb(103, 103, 209);
+    padding: 10px;
+    margin-top: 10px;
+}
+
 .imgbut {
-    width: 32px;
+    width: 48px;
     height: auto;
     /* visibility: hidden; */
 }
@@ -40,7 +47,7 @@ body {
 }
 
 .copyright {
-	color: rgb(81, 42, 165);
+	color: rgb(103, 103, 209);;
 	text-align: right;
 	font-size: 0.7em;
 	font-style: normal;
