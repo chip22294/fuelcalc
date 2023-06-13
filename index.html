@@ -19,53 +19,75 @@
 	<link rel="manifest" href="site.webmanifest">
 	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 </head>
-<!-- ? Перепиляти форму дівами
-<div class="row g-3 align-items-center">
-	<div class="col-auto">
-	  <label for="inputPassword6" class="col-form-label">Password</label>
-	</div>
-	<div class="col-auto">
-	  <input type="password" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
-	</div>
-	<div class="col-auto">
-	  <span id="passwordHelpInline" class="form-text">
-		Must be 8-20 characters long.
-	  </span>
-	</div>
-  </div> -->
-<body>
-  	<div class="head card">
+<body class="mx-2 mt-1">
+  	<div class="head card mb-2">
     	<h4 class="logo">FUEL CALCULATOR</h4>
 	</div>
 	<form id="main-form" method="post">
-		<table>
-			<tr>
-				<td class="tdlabel">Fuel consumption:</td>
-				<td><input class="tdinput" type="number" name="fuelcons" id="fuelcons" onchange="resetCalc()"></td>
-				<td>l/100 km</td>
-			</tr>
-			<tr>
-				<td class="tdlabel">Fuel cost:</td>
-				<td><input class="tdinput" type="number" name="fuelcost" id="fuelcost" onchange="resetCalc()"></td>
-				<td>UAH</td>
-			</tr>
-			<tr>
-				<td class="tdlabel">Distance:</td>
-				<td><input class="tdinput"  type="number" name="distance" id="distance" onchange="resetCalc()"></td>
-				<td>km</td>
-			</tr>
-			<tr>
-				<td class="tdlabel">Price:</td>
-				<td><input class="tdinput" type="number" name="price" id="price" readonly></td>
-				<td>UAH</td>
-			</tr>
-		</table>
-		<samp id="errormsg"></samp>
-		<div id="butplace">
-			<input class="imgbut" type="image" src="images/calc.png" alt="Calculate" id="calculate">
-			<input class="imgbut" type="image" src="images/reset.png" alt="Reset" id="resetf">
-			<a href="#" onclick="sendToClick('viber')"><img id="viberbtn" class="imgbut" src="images/viber.png" alt="To Viber"></a>
-			<a href="#" onclick="sendToClick('telegram')"><img id="telebtn" class="imgbut" src="images/telegram.png" alt="To Telegram"></a>
+		<div class="card" id="fieldsplace">
+			<div class="row m-1 align-items-center">
+				<div class="col-1">
+					<label for="fuelcons" class="col-form-label-sm">Fuel consumption:</label>
+				</div>
+				<div class="col-auto">
+					<input class="form-control" type="number" name="fuelcons" id="fuelcons" onchange="resetCalc()">
+				</div>
+				<div class="col-auto">
+					<span class="form-text">l/100 km</span>
+				</div>
+			</div>
+			<div class="row m-1 align-items-center">
+				<div class="col-1">
+					<label for="fuelcost" class="col-form-label">Fuel cost:</label>
+				</div>
+				<div class="col-auto">
+					<input class="form-control" type="number" name="fuelcost" id="fuelcost" onchange="resetCalc()">
+				</div>
+				<div class="col-auto">
+					<span class="form-text">UAH</span>
+				</div>
+			</div>
+			<div class="row m-1 align-items-center">
+				<div class="col-1">
+					<label for="distance" class="col-form-label">Distance:</label>
+				</div>
+				<div class="col-auto">
+					<input class="form-control" type="number" name="distance" id="distance" onchange="resetCalc()">
+				</div>
+				<div class="col-auto">
+					<span class="form-text">km</span>
+				</div>
+			</div>
+			<div class="row m-1 align-items-center">
+				<div class="col-1">
+					<label for="price" class="col-form-label">Price:</label>
+				</div>
+				<div class="col-auto">
+					<input class="form-control" type="number" name="price" id="price" onchange="resetCalc()" readonly>
+				</div>
+				<div class="col-auto">
+					<span class="form-text">UAH</span>
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-danger" role="alert" id="erroralert">
+			<samp id="errormsg"></samp>
+		</div>
+		<div id="butplace" class="card mt-1 p-2">
+			<div class="row">
+				<div class="col-auto">
+					<input class="imgbut" type="image" src="images/calc.png" alt="Calculate" id="calculate">
+				</div>
+				<div class="col-auto">
+					<input class="imgbut" type="image" src="images/reset.png" alt="Reset" id="resetf" />
+				</div>
+				<div class="col-auto">
+					<a href="#" onclick="sendToClick('viber')"><img id="viberbtn" class="imgbut" src="images/viber.png" alt="To Viber"></a>
+				</div>
+				<div class="col-auto">
+					<a href="#" onclick="sendToClick('telegram')"><img id="telebtn" class="imgbut" src="images/telegram.png" alt="To Telegram"></a>
+				</div>
+			</div>
 		</div>
 	</form>
 		

@@ -1,5 +1,6 @@
 document.getElementById("main-form").addEventListener("submit", checkForm);
 var mainForm = document.getElementById("main-form");
+var errorAlert = document.getElementById("erroralert");
 var errorMsg = document.getElementById("errormsg");
 
 var viberbtn = document.getElementById("viberbtn");
@@ -36,6 +37,22 @@ function shareVisible(isVisible) {
     } else {
         viberbtn.style.visibility = "hidden";
         telebtn.style.visibility = "hidden";
+    }
+}
+
+function showError(isVisible, inText) {
+    if (isVisible) {
+        errorAlert.style.visibility = "visible";
+        errorAlert.style.height = "auto";
+        errorAlert.style.padding = "auto";
+        errorAlert.style.margin =  "auto";
+        errorMsg.textContent = inText;
+    } else {
+        errorAlert.style.visibility = "hidden";
+        errorAlert.style.height = "0px";
+        errorAlert.style.padding = "0px";
+        errorAlert.style.margin =  "0px";
+        errorMsg.textContent = "";
     }
 }
 
@@ -76,13 +93,15 @@ function processForm () {
     
     if (chkErrors()) {
         mainForm.price.value= calc (oFuelcons, oFuelcost, oDistance);
-        errorMsg.textContent = "";
+        // errorMsg.textContent = "";
+        showError(false, "");
         saveFormCookies();
         shareVisible (true);
     } else 
     {
         mainForm.price.value = 0;
-        errorMsg.textContent = "Error !";
+        // errorMsg.textContent = "Error !";
+        showError(true, "Error !");
         shareVisible (false);
     }
 }
@@ -98,7 +117,8 @@ function checkForm(event) {
         case "resetf":
             mainForm.price.value = 0;
             mainForm.distance.value = defaultDistance;
-            errorMsg.textContent = "";
+            // errorMsg.textContent = "";
+            showError(false, "");
             shareVisible (false);
             break;    
         default:

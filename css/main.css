@@ -5,7 +5,7 @@ body {
     font-size: 1.2em;
     border-radius: 5px;
     /* text-align: center; */
-}
+} 
 
 .head {
     background: rgb(103, 103, 209);
@@ -13,37 +13,36 @@ body {
     text-align: center;
     border-radius: 5px;
 }
-
+/* 
 #main-form {
     background-color: bisque;
     padding: 10px;
     border-radius: 5px;
+} */
+
+#fieldsplace {
+    text-align: right;
+}
+
+#fieldsplace, #butplace {
+    background-color: bisque;
+}
+
+#erroralert {
+    visibility:hidden;
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 #errormsg {
     color: red;
 }
 
-#butplace {
-    text-align: center;
-    border-top: 1px outset rgb(103, 103, 209);
-    padding: 10px;
-    margin-top: 10px;
-}
-
 .imgbut {
     width: 48px;
     height: auto;
     /* visibility: hidden; */
-}
-
-.tdlabel {
-    text-align: right;
-}
-
-.tdinput {
-    width: 70px;
-    font-size: 1.2em;
 }
 
 .copyright {
